@@ -12,14 +12,16 @@
   "author": "Grim",
   "license": "ISC",
   "dependencies": {
-    "@chainlink/contracts": "^0.2.2",
-    "@openzeppelin/contracts": "^4.4.0",
+    "@chainlink/contracts": "^0.3.0",
+    "@openzeppelin/contracts": "^4.4.1",
     "@openzeppelin/test-helpers": "^0.5.15",
-    "@truffle/hdwallet-provider": "^1.7.0",
+    "@openzeppelin/truffle-upgrades": "^1.11.0",
+    "@truffle/hdwallet-provider": "^2.0.0",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
-    "truffle-plugin-verify": "^0.5.18"
+    "solhint": "^3.3.6",
+    "truffle-plugin-verify": "^0.5.20"
   }
 }
