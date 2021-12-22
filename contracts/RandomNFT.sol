@@ -68,9 +68,12 @@ contract RandomNFT is ERC1155, VRFConsumerBase, Ownable {
     //Mint function for users to mint GENESIS if they hold other NFT
     //Here id would be the id of NFT they hold
     function mintByUser(uint16 id) external {
-        require(id < totalGenesisToBeMinted,"Invalid token id");
-        require(nftContract.ownerOf(id) == msg.sender,"You don't own corresponding NFT");
-        require(!isAlreadyMinted[id],"GENESIS mint already made for this NFT");
+        require(id < totalGenesisToBeMinted, "Invalid token id");
+        require(
+            nftContract.ownerOf(id) == msg.sender,
+            "You don't own corresponding NFT"
+        );
+        require(!isAlreadyMinted[id], "GENESIS mint already made for this NFT");
 
         _mint(msg.sender, GENESIS, 1, "");
         isAlreadyMinted[id] = true;
@@ -87,9 +90,14 @@ contract RandomNFT is ERC1155, VRFConsumerBase, Ownable {
         numberOfWinners = amount;
     }
 
-    //Number of GENESIS which can be minted by users 
+    //Number of GENESIS which can be minted by users
     function setMaxGenesisCount(uint16 amount) external onlyOwner {
         totalGenesisToBeMinted = amount;
+    }
+
+    //Set new base URI for the NFT
+    function setBaseURI(string memory _uri) external onlyOwner {
+        _setURI(_uri);
     }
 
     //Random number generator function. Must be called before doing airdrop
